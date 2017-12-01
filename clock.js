@@ -2,10 +2,21 @@ var secondDegrees = 6;
 var minDegrees = 6;
 var hourDegrees = 30;
 
-var currentHour = 0;
-var currentMin = 0;
-var currentSec = 0;
+var today = new Date();
+var currentHour = today.getHours()*30;
+var currentMin = today.getMinutes()*6;
+var currentSec = today.getSeconds()*6;
 
+var startClock = function() {
+	var el = document.getElementById("hour");
+	el.style.transform = "rotate(" + currentHour + "deg)";
+	el = document.getElementById("minute");
+	el.style.transform = "rotate(" + currentMin + "deg)";
+	el = document.getElementById("second");
+	el.style.transform = "rotate(" + currentSec + "deg)";
+}
+
+setTimeout(startClock, 1);
 
 var hourTick = function() {
 	console.log('tick hour');
@@ -25,6 +36,7 @@ var secTick = function() {
 	console.log('tick sec');
 	currentSec += secondDegrees;
 	var el = document.getElementById("second");
+	console.log(el);
 	el.style.transform = "rotate(" + currentSec + "deg)";
 }
 
