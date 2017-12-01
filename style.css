@@ -4,6 +4,7 @@
 }
 
 #clock img {
+	position: absolute;
 }
 
 #hour {
@@ -19,6 +20,7 @@
 #second {
 	position: absolute;
 	top: 0;
+	z-index: 99;
 }
 
 #myElement {
