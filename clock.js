@@ -3,9 +3,14 @@ var minDegrees = 6;
 var hourDegrees = 30;
 
 var today = new Date();
-var currentHour = today.getHours()*30;
+var currentHour = today.getHours();
 var currentMin = today.getMinutes()*6;
 var currentSec = today.getSeconds()*6;
+
+if (currentHour > 12) {
+	currentHour -= 12;
+}
+currentHour *= 30;
 
 var startClock = function() {
 	var el = document.getElementById("hour");
@@ -40,6 +45,6 @@ var secTick = function() {
 	el.style.transform = "rotate(" + currentSec + "deg)";
 }
 
-setInterval(hourTick, 360000);
+setInterval(hourTick, 3600000);
 setInterval(minTick, 60000);
 setInterval(secTick, 1000);
